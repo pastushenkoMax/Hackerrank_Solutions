@@ -4,13 +4,17 @@ import java.util.List;
 
 public class diagonal_difference{
     public static int diagonalDifference(List<List<Integer>> arr) {
-        // Write your code here
         int x = 0;
         int y = 0;
         int z = 0;
-        
-        x = arr.get(0).get(0) + arr.get(1).get(1) + arr.get(2).get(2);
-        y = arr.get(0).get(2) + arr.get(1).get(1) + arr.get(2).get(0);
+        for(int i = 0; i < arr.size(); i++){
+            for(int j = 0; j < arr.size(); j++){
+                if( i == j ){
+                    x += arr.get(i).get(j);
+                }
+            }
+                y += arr.get(i).get(arr.size()-(i+1));
+        }
         if(x > y){
             z = x - y;
         } else {
